@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Select2
+@import 'select2.min';
+
 .navbar-laravel {
   background-color: $brand-color;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -29,3 +32,31 @@ body{background: $app-bg-color;}
 .card-header{
   font-size: $head-font-size;
 }
+
+/********** App theme *************/
+.profile-main{text-align: center;}
+.profile-main h2{font-size: 18px; color: #198ccb; font-weight: bold;}
+.profile-main h3{font-size: 16px;}
+.profile-main h4{font-size: 13px; color: #87a4b5;}
+.skills span{
+    border: 1px solid #198ccb;
+    padding: 5px 8px;
+    border-radius: 8px;
+    margin: 3px 1px;
+    font-size: 13px;
+    display: inline-block;
+    background: #dce6ec;
+}
+.leftborder{border-left: 1px solid rgba(0, 0, 0, 0.125);}
+/********** App theme *************/
+
+/********** Select2 theme *************/
+.select2-container .select2-selection--single{
+  border: 1px solid #ced4da !important;
+  height: calc(1.6em + 0.75rem + 2px) !important;
+  padding-top: 4px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  top: 4px !important;
+}
+/********** Select2 theme *************/
