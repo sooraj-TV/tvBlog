@@ -34,4 +34,5 @@ const app = new Vue({
 });
 $(document).ready(function(){
     $('.designation').select2();
+    $('.pskills').select2();
 });

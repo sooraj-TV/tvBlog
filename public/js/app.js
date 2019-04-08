@@ -49038,6 +49038,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
   $('.designation').select2();
+  $('.pskills').select2();
 });
 
 /***/ }),
@@ -56034,8 +56035,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp\www\tvBlog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp\www\tvBlog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/tvBlog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/tvBlog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

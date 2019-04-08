@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Designation;
+use App\SkillMatrix;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -26,9 +27,18 @@ class ProfileController extends Controller
      */
     public function __invoke()
     {
-        $profileData = User::findOrFail(Auth::user()->id);
-        dd($profileData->designation());
-        $designation = Designation::findOrFail($profileData->designation_id);
-        return view('profile')->with(compact('profileData','designation'));
+        $profileData    = User::findOrFail(Auth::user()->id);
+        $designations   = Designation::all();
+        $designation    = Designation::find($profileData->designation_id);
+        $skills         = SkillMatrix::all();
+        //dd($skills);
+        //echo User::designation(); exit;
+
+        return view('profile')->with(compact('profileData', 'designation', 'designations', 'skills'));
+    }
+
+    public function updateProfileAppln(Request $request){ 
+        $input = $request->all();
+        dd($input);
     }
 }

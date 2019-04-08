@@ -32,19 +32,35 @@
                         <div class="col-md-9 leftborder">
                             <h2>Manage Profile</h2>
                             <div class="col-md-6">
-                                <form>
+                                <form method="POST" action="{{ url('profile/appln') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="ename">Name</label>
-                                        <input type="text" class="form-control" id="ename" placeholder="Name" value="Sooraj">
+                                        <input type="text" class="form-control" id="ename" placeholder="Name" value="{{ $profileData->name }}" required>
                                     </div>
                                     <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <textarea class="form-control" id="title" placeholder="Title" >{{ $profileData->title }}</textarea>
+                                        </div>
+                                    <div class="form-group">
                                         <label for="desig">Designation</label>                                        
-                                        <select class="form-control designation" name="designation_id">
-                                            <option value="AL">Alabama</option>                                            
-                                            <option value="WY">Wyoming</option>
+                                        <select class="form-control designation" name="designation_id" required>
+                                            @foreach ($designations as $des)
+                                                <option value="{{ $des->id }}" @if($des->id == $profileData->designation_id) selected @endif>{{ $des->designation }}</option>             
+                                            @endforeach                                                                                                                       
                                         </select>
                                     </div>
-                                    
+                                    @php
+                                        //$skills_arr = $skills->toArray();   
+                                    @endphp
+                                    <div class="form-group">
+                                        <label for="desig">Skills</label>                                        
+                                        <select class="form-control pskills" name="skill_ids[]" multiple required>
+                                            @foreach ($skills as $skill)
+                                                <option value="{{ $skill->id }}" selected>{{ $skill->skills }}</option>   
+                                            @endforeach                                            
+                                        </select>
+                                    </div>
                                     
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
