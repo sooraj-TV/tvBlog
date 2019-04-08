@@ -23,7 +23,7 @@
                             </div>
                             <hr>
                             <div class="skills">
-                                <span>HTML </span> <span>CSS3</span> <span>Javascript</span> <span>JQuery</span>
+                                <span>HTML </span> <span>CSS3 </span> <span>Javascript</span> <span>JQuery</span>
                                 <span>HTML</span> <span>CSS3</span> <span>Javascript</span> <span>JQuery</span>
                             </div>
                             
