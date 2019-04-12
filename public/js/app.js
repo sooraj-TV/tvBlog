@@ -49037,8 +49037,13 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
+  // select2 in manage profile page
   $('.designation').select2();
-  $('.pskills').select2();
+  $('.pskills').select2(); // auto closing of alert boxes
+
+  setTimeout(function () {
+    $(".alert").fadeOut();
+  }, 5000);
 });
 
 /***/ }),

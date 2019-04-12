@@ -27,18 +27,33 @@ class ProfileController extends Controller
      */
     public function __invoke()
     {
-        $profileData    = User::findOrFail(Auth::user()->id);
+        $profileData    = User::getProfileData(Auth::user()->id);//User::findOrFail(Auth::user()->id);
+        //p($profileData); exit;
         $designations   = Designation::all();
-        $designation    = Designation::find($profileData->designation_id);
         $skills         = SkillMatrix::all();
-        //dd($skills);
-        //echo User::designation(); exit;
+        $user_skills    = User::getUserSkills(Auth::user()->id);
 
-        return view('profile')->with(compact('profileData', 'designation', 'designations', 'skills'));
+        return view('profile')->with(compact('profileData', 'designations', 'skills', 'user_skills'));
     }
 
-    public function updateProfileAppln(Request $request){ 
+    public function updateProfileAppln(Request $request){
         $input = $request->all();
-        dd($input);
+        //dd($input);
+        $updated = User::updateProfile($input);
+
+        if($updated){
+            return redirect()->back()->with('success', "Your profile has been successfully updated.");
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    //show user profile
+    public function showUserProfile($id='', Request $request){
+        $input = $request->all();
+        $profileData    = User::getProfileData($id);
+        $user_skills    = User::getUserSkills($id);
+        return view('profile-public')->with(compact('profileData', 'user_skills'));
     }
 }

@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController')->name('profile');
-Route::post('/profile/appln', 'ProfileController@updateProfileAppln');
+Route::post('/profile-appln', 'ProfileController@updateProfileAppln');
+
+Route::get('/profile/{id}', 'ProfileController@showUserProfile');
 

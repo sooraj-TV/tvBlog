@@ -11338,8 +11338,12 @@ body {
 }
 
 .profile-main h4 {
-  font-size: 13px;
-  color: #87a4b5;
+  font-size: 14px;
+  color: #87a4b4;
+}
+
+.skills {
+  margin-bottom: 10px;
 }
 
 .skills span {
@@ -11354,6 +11358,34 @@ body {
 
 .leftborder {
   border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.profile-list .media {
+  background: #e8e8e8;
+  padding: 5px 15px;
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: 0.8s;
+}
+
+.profile-list span {
+  color: #7c93a0;
+  font-size: 13px;
+}
+
+.profile-list a:hover {
+  text-decoration: none !important;
+}
+
+.profile-list .media:hover {
+  background: #dadada;
+}
+
+.label-gray {
+  background: #d8d6d6;
+  font-size: 10px;
+  padding: 1px 5px;
 }
 
 /********** App theme *************/
@@ -11377,6 +11409,10 @@ body {
 .select2-container--default.select2-container--focus .select2-selection--multiple {
   border: 1px solid #ced4da !important;
   padding-top: 4px !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #ced4da !important;
 }
 
 /********** Select2 theme *************/
