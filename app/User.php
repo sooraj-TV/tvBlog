@@ -54,6 +54,7 @@ class User extends Authenticatable
     }
     //update user profile
     public static function updateProfile($input = array()){
+        //p($input['skill_ids']); exit;
         if(!empty($input)){
             DB::table('users')
             ->where('id', Auth::user()->id)
@@ -71,10 +72,23 @@ class User extends Authenticatable
             DB::table('users_skills')->where('user_id', Auth::user()->id)->delete();
             foreach($input['skill_ids'] as $skill_id){
                 //echo $skill_id.'<br>';
-                DB::table('users_skills')->insert([
-                    'user_id' => Auth::user()->id,
-                    'skill_id' => $skill_id
-                ]);
+                if($skill_id>0){
+                    DB::table('users_skills')->insert([
+                        'user_id' => Auth::user()->id,
+                        'skill_id' => $skill_id
+                    ]);
+                }
+                else{
+                    $skillID = DB::table('skill_matrices')->insertGetId([
+                        'skills' => $skill_id
+                    ]);
+
+                    DB::table('users_skills')->insert([
+                        'user_id' => Auth::user()->id,
+                        'skill_id' => $skillID
+                    ]);
+
+                }
             }
 
             return true;

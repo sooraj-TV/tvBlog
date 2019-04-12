@@ -35,7 +35,9 @@ const app = new Vue({
 $(document).ready(function(){
     // select2 in manage profile page
     $('.designation').select2();
-    $('.pskills').select2();
+    $('.pskills').select2({
+        tags: true
+    });
 
     // auto closing of alert boxes
     setTimeout(function(){

@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="col-md-9 leftborder">
-                            <h2>Manage Profile</h2><hr>
+                            <h4>Manage Profile</h4><hr>
                             @if (\Session::has('success'))
                                 <div class="alert alert-success">
                                     {!! \Session::get('success') !!}
