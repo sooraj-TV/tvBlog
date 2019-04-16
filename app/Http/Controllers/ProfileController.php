@@ -1,5 +1,6 @@
 <?php
 namespace App;
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class ProfileController extends Controller
      */
     public function __invoke()
     {
-        $profileData    = User::getProfileData(Auth::user()->id);//User::findOrFail(Auth::user()->id);
+        $profileData    = User::getProfileData(Auth::user()->id); //User::findOrFail(Auth::user()->id);
         //p($profileData); exit;
         $designations   = Designation::all();
         $skills         = SkillMatrix::all();
@@ -36,21 +37,22 @@ class ProfileController extends Controller
         return view('profile')->with(compact('profileData', 'designations', 'skills', 'user_skills'));
     }
 
-    public function updateProfileAppln(Request $request){
+    public function updateProfileAppln(Request $request)
+    {
         $input = $request->all();
         //dd($input);
         $updated = User::updateProfile($input);
 
-        if($updated){
+        if ($updated) {
             return redirect()->back()->with('success', "Your profile has been successfully updated.");
-        }
-        else{
+        } else {
             return redirect()->back();
         }
     }
 
     //show user profile
-    public function showUserProfile($id='', Request $request){
+    public function showUserProfile($id = '', Request $request)
+    {
         $input = $request->all();
         $profileData    = User::getProfileData($id);
         $user_skills    = User::getUserSkills($id);
