@@ -16,7 +16,7 @@
                 <div class="card-body">
                     {{-- {{ dd($profileData) }} --}}
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="profile-main">
                                 <img src="{{ url('images/default-user.png') }}" class="img-circle" width="125"><br><br>
                                 <h2>{{ $profileData->name }}</h2>
@@ -37,7 +37,7 @@
 
                         </div>
 
-                        <div class="col-md-9 leftborder">
+                        <div class="col-md-8 leftborder">
                             <h4>Technical Skills</h4><hr>
                             <div class="skills">
                                 @foreach ($user_skills as $uskill)
