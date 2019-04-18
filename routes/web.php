@@ -23,4 +23,3 @@ Route::get('/profile', 'ProfileController')->name('profile');
 Route::post('/profile-appln', 'ProfileController@updateProfileAppln');
 
 Route::get('/profile/{id}', 'ProfileController@showUserProfile');
-
